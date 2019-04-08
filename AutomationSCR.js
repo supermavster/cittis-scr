@@ -1,5 +1,5 @@
 /** Add Library */
-const
+const robot = require("robotjs"),
     fs    = require("fs"),      // Maker Files
     http  = require('http'),    // Get Content Web;
     https = require('https');   // Get Content Web;
@@ -15,8 +15,10 @@ class AutomationSCR {
         this.dataMain = (this.getScript(url));
         // Make File
         this.makeFile();
-    }
+        // Open Autocad
+        this.openExe();
 
+    }
 
     getScript(url) {
         return new Promise((resolve, reject) => {
@@ -53,6 +55,93 @@ class AutomationSCR {
         });
     }
 
+    async openExe() {
+        robot.setKeyboardDelay(500);
+
+        // Change Window
+        robot.keyTap("tab", ["alt"]);
+
+        // Max Size
+        robot.keyTap("up", ["command"]);
+
+        // Exit Actions Inside - Software
+        robot.keyTap("escape");
+        robot.keyTap("escape");
+
+        // Active Command
+        robot.typeString("scr");
+        robot.keyTap("enter");
+
+        // Press Documents
+        // Select and Enter to Folder (0A)
+        robot.moveMouse(700, 430);
+        robot.mouseClick();
+
+        // Enter Folder
+        robot.keyTap("tab");
+        robot.keyTap("tab");
+        robot.keyTap("tab");
+        robot.keyTap("down");
+        robot.keyTap("up");
+
+        robot.keyTap("enter");
+
+
+        // Enter File
+        robot.keyTap("down");
+        robot.keyTap("down");
+        robot.keyTap("enter");
+
+        /*
+        robot.keyTap("down");
+        robot.keyTap("enter");
+
+        const { fork } = require('child_process');
+        const n = fork(`${__dirname}/child.js`);
+
+        n.on('message', (m) => {
+            console.log('PARENT got message:', m);
+        });
+
+    // Causes the child to print: CHILD got message: { hello: 'world' }
+        n.send({ hello: 'world' });
+
+
+        /* Child process script - child.js * /
+
+        process.on('message', (m) => {
+            console.log('CHILD got message:', m);
+        });
+
+    // Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+        process.send({ foo: 'bar', baz: NaN });
+    */
+
+        /*
+            robot.keyTap("d", ["command"]);
+            robot.keyTap("r", ["command"]);
+            var open = await robot.typeString(pathFile);
+            if(open === 1) {
+                robot.setKeyboardDelay(500);
+                robot.keyTap("enter");
+                // Full size
+                robot.keyTap("up", ["command"]);
+
+
+                robot.typeString("_new", 300);
+
+                var size = size.get();
+                var img = robot.screen.capture(0, 0, size, size);
+        // Support for higher density screens.
+                var multi = img.width / size;
+        // Get color at 2, 3.
+                var color = img.colorAt(2 * multi, 3 * multi);
+
+            }else{
+                conosle.log("no open");
+            }*/
+    }
+
 }
 
 
@@ -61,4 +150,4 @@ this.start = async function (pathWeb) {
     var automationSCR = new AutomationSCR();
     await automationSCR.start(pathWeb);
     return "End Process";
-}
+};
