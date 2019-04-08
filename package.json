@@ -1,0 +1,12 @@
+{
+  "name": "Compilator SCR",
+  "version": "1.0.0",
+  "description": "A software of process automation for Autocad  ",
+  "main": "index.js",
+  "author": "Mavster",
+  "dependencies": {
+    "robotjs": "^0.4.5",
+    "async": "^1.5.0",
+    "window-size": "^1.1.1"
+  }
+}
