@@ -9,6 +9,7 @@ class AutomationSCR {
     // Variables
     constructor() {
         this.dataMain = "";
+        robot.setKeyboardDelay(500);
     }
 
     start(url) {
@@ -55,8 +56,12 @@ class AutomationSCR {
         });
     }
 
+    async newDocument() {
+
+        // TODO: Import DWG with Values (Needed)
+    }
+
     async openExe() {
-        robot.setKeyboardDelay(500);
 
         // Change Window
         robot.keyTap("tab", ["alt"]);
@@ -144,10 +149,15 @@ class AutomationSCR {
 
 }
 
+var automationSCR = new AutomationSCR();
+
+this.newDocument = async function () {
+    automationSCR.newDocument();
+    return "Make New Document DWG";
+};
 
 this.start = async function (pathWeb) {
 
-    var automationSCR = new AutomationSCR();
     await automationSCR.start(pathWeb);
     return "End Process";
 };
