@@ -81,19 +81,21 @@ class AutomationSCR {
         // Select and Enter to Folder (0A)
         var size = (robot.getScreenSize());
 
-        let prom = 280;
+        let prom = 273.333;
         prom *= 2;
 
         let width = size.width;
         width -= prom;
-        width = (width / 2);
+        width = (width / 2) + 100;
+
+        width = width - 100;
 
         // Height
-        prom = 230;
+        prom = 326.666;
 
         let height = size.height;
         height += prom;
-        height = (height / 3);
+        height = (height / 3) - 10;
 
 
         console.log(width + ", " + height);
