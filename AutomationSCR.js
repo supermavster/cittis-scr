@@ -17,7 +17,7 @@ class AutomationSCR {
         // Make File
         this.makeFile();
         // Open Autocad
-        //this.openExe();
+        this.openExe();
 
     }
 
@@ -79,7 +79,25 @@ class AutomationSCR {
 
         // Press Documents
         // Select and Enter to Folder (0A)
-        robot.moveMouse(700, 430);
+        var size = (robot.getScreenSize());
+
+        let prom = 280;
+        prom *= 2;
+
+        let width = size.width;
+        width -= prom;
+        width = (width / 2);
+
+        // Height
+        prom = 230;
+        prom *= 2;
+
+        let height = size.width;
+        height += prom;
+        height = (height / 4);
+
+
+        robot.moveMouse(width, height);
         robot.mouseClick();
 
         // Enter Folder
