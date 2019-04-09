@@ -12,12 +12,12 @@ class AutomationSCR {
         robot.setKeyboardDelay(500);
     }
 
-    start(url) {
-        this.dataMain = (this.getScript(url));
+    async start(url) {
+        this.dataMain = await Promise.resolve(this.getScript(url));
         // Make File
         this.makeFile();
         // Open Autocad
-        this.openExe();
+        //this.openExe();
 
     }
 

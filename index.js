@@ -10,7 +10,7 @@
 let flag = 0;
 // Variables Main
 let pathWeb = 'https://ivs.cittis.com.co/isv/source/controller/Reportes/creararchivo.php';
-let pathAutocad = "D:\\Softwares\\IDES\\AutoCad 2019 (Portable)\\AutoCAD 2019 - English.exe";
+let pathAutocad = "notepad";//"D:\\Softwares\\IDES\\AutoCad 2019 (Portable)\\AutoCAD 2019 - English.exe";
 
 const library = require('child_process');
 const exec = library.exec;
@@ -27,6 +27,7 @@ try {
 
 
 function check() {
+
     isRunning(pathAutocad).then((status) => {
         console.log(status);
         if (!status && flag == 0) {
@@ -37,6 +38,7 @@ function check() {
             initProcess();
         }
     });
+
 }
 
 function initProcess() {
