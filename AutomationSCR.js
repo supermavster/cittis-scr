@@ -81,7 +81,8 @@ class AutomationSCR {
         // Select and Enter to Folder (0A)
         var size = (robot.getScreenSize());
 
-        let prom = 273.333;
+        // Average Size Screens Width
+        let prom = 373.33333333333333333333333333333;
         prom *= 2;
 
         let width = size.width;
@@ -90,8 +91,9 @@ class AutomationSCR {
         // Flag
         width = width - 100;
 
+        // Average Size Screens
         // Height
-        prom = 326.666;
+        prom = 326.66666666666666666666666666667;
 
         let height = size.height;
         height += prom;
