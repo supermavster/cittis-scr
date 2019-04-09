@@ -87,7 +87,7 @@ class AutomationSCR {
         let width = size.width;
         width -= prom;
         width = (width / 2) + 100;
-
+        // Flag
         width = width - 100;
 
         // Height
@@ -96,7 +96,8 @@ class AutomationSCR {
         let height = size.height;
         height += prom;
         height = (height / 3) - 10;
-
+        // Flag
+        height = height - 100;
 
         console.log(width + ", " + height);
 
