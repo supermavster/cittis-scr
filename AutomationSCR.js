@@ -90,12 +90,13 @@ class AutomationSCR {
 
         // Height
         prom = 230;
-        prom *= 2;
 
-        let height = size.width;
+        let height = size.height;
         height += prom;
-        height = (height / 4);
+        height = (height / 3);
 
+
+        console.log(width + ", " + height);
 
         robot.moveMouse(width, height);
         robot.mouseClick();
